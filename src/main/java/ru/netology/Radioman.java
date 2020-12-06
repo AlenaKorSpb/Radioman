@@ -7,21 +7,15 @@ public class Radioman {
     private int minVolume = 0;
     private int maxVolume = 100;
     private int currentVolume;
-//
-//    public void setMaxStation(int maxStation) {
-//        this.maxStation = maxStation;
-//    }
-//
-//    public int getMaxStation() {
-//        return maxStation;
-//    }
+
+
+    public int getMaxStation() {
+        return maxStation;
+    }
 
     public Radioman(int maxStation, int currentStation, int currentVolume) {
-       // this.minStation = minStation;
         this.maxStation = maxStation;
         this.currentStation = currentStation;
-//        this.minVolume = minVolume;
-//        this.maxVolume = maxVolume;
         this.currentVolume = currentVolume;
     }
     public Radioman () {

@@ -16,38 +16,27 @@ class RadiomanTest {
     }
 
 
-//    @Test
-//        public void RadiomanMaxS () {  //shouldSetMaxStation() {
-//            Radioman radioman = new Radioman(15, 4, 30);
-//            //radioman.setCurrentStation(15);
-//            int actual = radioman.getMaxStation();
-//        //getCurrentStation, getCurrentVolume;
-//            int expected = 15;
-//
-//            assertEquals(expected, actual);
-//        }
-//@Test
-//        public void RadiomanCS () {  //shouldSetMaxStation() {
-//            Radioman radioman = new Radioman(15, 4, 30);
-//            //radioman.setCurrentStation(15);
-//            int actual = radioman.getCurrentStation(); //getMaxStation(), , getCurrentVolume();
-//            int expected = 4;
-//
-//            assertEquals(expected, actual);
-//        }
-
-
     @Test
-        public void RadiomanCS () {  //shouldSetMaxStation() {
+        public void RadiomanCurrentStation () {
             Radioman radioman = new Radioman(15, 4, 30);
-            //radioman.setCurrentStation(15);
-            int actual = radioman.getCurrentStation(); //getMaxStation(), , getCurrentVolume();
+            int actual = radioman.getCurrentStation();
             int expected = 4;
-
             assertEquals(expected, actual);
         }
-
-
+    @Test
+    public void RadiomanMaxStation () {
+        Radioman radioman = new Radioman(15, 4, 30);
+        int actual = radioman.getMaxStation();
+        int expected = 15;
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void RadiomanCurrentVolume () {
+        Radioman radioman = new Radioman(15, 4, 30);
+        int actual = radioman.getCurrentVolume();
+        int expected = 30;
+        assertEquals(expected, actual);
+    }
 
     @Test
     public void shouldSetCurrentStationHigherMax() {
@@ -72,9 +61,8 @@ class RadiomanTest {
     @Test
     public void shouldSetNextStationMax1() {
         Radioman radioman = new Radioman(15, 15, 30);
-        //radioman.setCurrentStation(15);
         radioman.setNexCurrentStation();
-        int actual = radioman.getCurrentStation();;//getMaxStation();//
+        int actual = radioman.getCurrentStation();
         int expected = 0;
 
         assertEquals(expected, actual);
