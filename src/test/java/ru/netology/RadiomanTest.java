@@ -15,10 +15,33 @@ class RadiomanTest {
         assertEquals(expected, actual);
     }
 
+
+    @Test
+        public void RadiomanCurrentStation () {
+            Radioman radioman = new Radioman(15, 4, 30);
+            int actual = radioman.getCurrentStation();
+            int expected = 4;
+            assertEquals(expected, actual);
+        }
+    @Test
+    public void RadiomanMaxStation () {
+        Radioman radioman = new Radioman(15, 4, 30);
+        int actual = radioman.getMaxStation();
+        int expected = 15;
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void RadiomanCurrentVolume () {
+        Radioman radioman = new Radioman(15, 4, 30);
+        int actual = radioman.getCurrentVolume();
+        int expected = 30;
+        assertEquals(expected, actual);
+    }
+
     @Test
     public void shouldSetCurrentStationHigherMax() {
         Radioman radioman = new Radioman();
-        radioman.setCurrentStation(15);
+        radioman.setCurrentStation(16);
         int actual = radioman.getCurrentStation();
         int expected = 0;
 
@@ -28,7 +51,16 @@ class RadiomanTest {
     @Test
     public void shouldSetNextStationMax() {
         Radioman radioman = new Radioman();
-        radioman.setCurrentStation(9);
+        radioman.setCurrentStation(15);
+        radioman.setNexCurrentStation();
+        int actual = radioman.getCurrentStation();
+        int expected = 0;
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetNextStationMax1() {
+        Radioman radioman = new Radioman(15, 15, 30);
         radioman.setNexCurrentStation();
         int actual = radioman.getCurrentStation();
         int expected = 0;
@@ -52,7 +84,7 @@ class RadiomanTest {
         Radioman radioman = new Radioman();
         radioman.setCurrentStation(-5);
         int actual = radioman.getCurrentStation();
-        int expected = 9;
+        int expected = 15;
 
         assertEquals(expected, actual);
     }
@@ -61,10 +93,10 @@ class RadiomanTest {
     @Test
     public void shouldSetPrevCurrentStationMax() {
         Radioman radioman = new Radioman();
-        radioman.setCurrentStation(9);
+        radioman.setCurrentStation(15);
         radioman.setPrevCurrentStation();
         int actual = radioman.getCurrentStation();
-        int expected = 8;
+        int expected = 14;
         assertEquals(expected, actual);
 
     }
@@ -75,7 +107,7 @@ class RadiomanTest {
         radioman.setCurrentStation(0);
         radioman.setPrevCurrentStation();
         int actual = radioman.getCurrentStation();
-        int expected = 9;
+        int expected = 15;
 
         assertEquals(expected, actual);
     }
@@ -95,14 +127,23 @@ class RadiomanTest {
     @Test
     public void shouldSetIncreaseCurrentVolumeMax() {
         Radioman radioman = new Radioman();
-        radioman.setCurrentVolume(10);
+        radioman.setCurrentVolume(100);
         radioman.setIncreaseCurrentVolume();
         int actual = radioman.getCurrentVolume();
-        int expected = 10;
+        int expected = 100;
 
         assertEquals(expected, actual);
     }
+    @Test
+    public void shouldSetIncreaseCurrentVolumeMax1() {
+        Radioman radioman = new Radioman(15, 10, 90);
+        //radioman.setCurrentVolume(100);
+        radioman.setIncreaseCurrentVolume();
+        int actual = radioman.getCurrentVolume();
+        int expected = 91;
 
+        assertEquals(expected, actual);
+    }
 
     @Test
     public void shouldSetIncreaseCurrentVolumeMin() {
@@ -130,10 +171,10 @@ class RadiomanTest {
     @Test
     public void shouldSetDecreaseCurrentVolumeMax() {
         Radioman radioman = new Radioman();
-        radioman.setCurrentVolume(10);
+        radioman.setCurrentVolume(100);
         radioman.setDecreaseCurrentVolume();
         int actual = radioman.getCurrentVolume();
-        int expected = 9;
+        int expected = 99;
 
         assertEquals(expected, actual);
     }
